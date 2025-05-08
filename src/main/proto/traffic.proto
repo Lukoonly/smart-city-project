@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option java_package = "com.smartcity.traffic";
+option java_outer_classname = "TrafficProto";
+
+service TrafficManagementService {
+  rpc ReportTraffic (TrafficReportRequest) returns (TrafficReportResponse);
+  rpc GetCurrentStatus (StatusRequest) returns (stream TrafficStatus);
+  rpc SendBatchReports (stream TrafficReportRequest) returns (TrafficSummary);
+  rpc TrafficChat (stream TrafficMessage) returns (stream TrafficMessage);
+}
+
+message TrafficReportRequest {
+  string location = 1;
+  string congestionLevel = 2; // "LOW", "MEDIUM", "HIGH"
+  string timestamp = 3;
+}
+
+message TrafficReportResponse {
+  string result = 1;
+}
+
+message StatusRequest {
+  string location = 1;
+}
+
+message TrafficStatus {
+  string location = 1;
+  string congestionLevel = 2;
+  string timestamp = 3;
+}
+
+message TrafficSummary {
+  int32 reportsReceived = 1;
+  string overallStatus = 2;
+}
+
+message TrafficMessage {
+  string sender = 1;
+  string content = 2;
+}
