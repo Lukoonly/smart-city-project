@@ -12,8 +12,6 @@ service TrafficManagementService {
 
 message TrafficReportRequest {
   string location = 1;
-  string congestionLevel = 2; // "LOW", "MEDIUM", "HIGH"
-  string timestamp = 3;
 }
 
 message TrafficReportResponse {
