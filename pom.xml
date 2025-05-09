@@ -16,7 +16,7 @@
         <module>public-service</module>
         <module>parking-service</module>
         <module>client</module>
-        <module>discovery-system</module>
+        <module>discovery-server</module>
         <module>traffic-service</module>
         <module>public-service</module>
         <module>parking-service</module>
