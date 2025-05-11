@@ -1,0 +1,127 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.nci.smartcity";
+
+service TrafficService {
+  rpc GetTrafficData (TrafficRequest) returns (TrafficResponse);
+  rpc AdjustTrafficLights (TrafficLightRequest) returns (TrafficLightResponse);
+  rpc StreamTrafficUpdates (TrafficStreamRequest) returns (stream TrafficUpdate);
+}
+
+service PublicService {
+  rpc ReportIssue (IssueReport) returns (IssueResponse);
+  rpc GetServiceStatus (ServiceRequest) returns (ServiceStatus);
+  rpc StreamServiceUpdates (ServiceStreamRequest) returns (stream ServiceUpdate);
+}
+
+service ParkingService {
+  rpc FindAvailableParking (ParkingRequest) returns (ParkingResponse);
+  rpc ReserveParking (ParkingReservation) returns (ParkingConfirmation);
+  rpc StreamParkingUpdates (ParkingStreamRequest) returns (stream ParkingUpdate);
+}
+
+// Traffic service messages
+message TrafficRequest {
+  string intersection_id = 1;
+}
+
+message TrafficResponse {
+  int32 vehicle_count = 1;
+  double average_speed = 2;
+  string congestion_level = 3;
+}
+
+message TrafficLightRequest {
+  string intersection_id = 1;
+  int32 green_duration = 2;
+  int32 red_duration = 3;
+}
+
+message TrafficLightResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message TrafficStreamRequest {
+  repeated string intersection_ids = 1;
+}
+
+message TrafficUpdate {
+  string intersection_id = 1;
+  int32 vehicle_count = 2;
+  string timestamp = 3;
+}
+
+// Public service messages
+message IssueReport {
+  string issue_type = 1;
+  string location = 2;
+  string description = 3;
+  string reporter_id = 4;
+}
+
+message IssueResponse {
+  string ticket_id = 1;
+  string status = 2;
+  string message = 3;
+}
+
+message ServiceRequest {
+  string service_type = 1;
+}
+
+message ServiceStatus {
+  string status = 1;
+  int32 response_time = 2;
+}
+
+message ServiceStreamRequest {
+  repeated string service_types = 1;
+}
+
+message ServiceUpdate {
+  string service_type = 1;
+  string status = 2;
+  string update_message = 3;
+  string timestamp = 4;
+}
+
+// Parking service messages
+message ParkingRequest {
+  string area_id = 1;
+}
+
+message ParkingResponse {
+  int32 available_spots = 1;
+  repeated ParkingSpot spots = 2;
+}
+
+message ParkingSpot {
+  string spot_id = 1;
+  bool is_available = 2;
+  string location = 3;
+}
+
+message ParkingReservation {
+  string spot_id = 1;
+  string user_id = 2;
+  string vehicle_plate = 3;
+  int32 duration_minutes = 4;
+}
+
+message ParkingConfirmation {
+  bool success = 1;
+  string reservation_id = 2;
+  string message = 3;
+}
+
+message ParkingStreamRequest {
+  string area_id = 1;
+}
+
+message ParkingUpdate {
+  string spot_id = 1;
+  bool is_available = 2;
+  string timestamp = 3;
+}
