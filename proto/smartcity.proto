@@ -3,25 +3,39 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.nci.smartcity";
 
+// ========== Service Discovery ==========
+service ServiceDiscovery {
+  rpc RegisterService (DiscoveryServiceInfo) returns (DiscoveryServiceResponse);
+  rpc DiscoverService (DiscoveryServiceRequest) returns (DiscoveryServiceInfo);
+  rpc ListServices (Empty) returns (DiscoveryServiceList);
+}
+
+message DiscoveryServiceInfo {
+  string service_name = 1;
+  string service_address = 2;
+  int32 service_port = 3;
+}
+
+message DiscoveryServiceResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message DiscoveryServiceRequest {
+  string service_name = 1;
+}
+
+message DiscoveryServiceList {
+  repeated DiscoveryServiceInfo services = 1;
+}
+
+// ========== Traffic Service ==========
 service TrafficService {
   rpc GetTrafficData (TrafficRequest) returns (TrafficResponse);
   rpc AdjustTrafficLights (TrafficLightRequest) returns (TrafficLightResponse);
   rpc StreamTrafficUpdates (TrafficStreamRequest) returns (stream TrafficUpdate);
 }
 
-service PublicService {
-  rpc ReportIssue (IssueReport) returns (IssueResponse);
-  rpc GetServiceStatus (ServiceRequest) returns (ServiceStatus);
-  rpc StreamServiceUpdates (ServiceStreamRequest) returns (stream ServiceUpdate);
-}
-
-service ParkingService {
-  rpc FindAvailableParking (ParkingRequest) returns (ParkingResponse);
-  rpc ReserveParking (ParkingReservation) returns (ParkingConfirmation);
-  rpc StreamParkingUpdates (ParkingStreamRequest) returns (stream ParkingUpdate);
-}
-
-// Traffic service messages
 message TrafficRequest {
   string intersection_id = 1;
 }
@@ -53,41 +67,53 @@ message TrafficUpdate {
   string timestamp = 3;
 }
 
-// Public service messages
-message IssueReport {
+// ========== Public Service ==========
+service PublicService {
+  rpc ReportIssue (PublicIssueReport) returns (PublicIssueResponse);
+  rpc GetServiceStatus (PublicServiceRequest) returns (PublicServiceStatus);
+  rpc StreamServiceUpdates (PublicServiceStreamRequest) returns (stream PublicServiceUpdate);
+}
+
+message PublicIssueReport {
   string issue_type = 1;
   string location = 2;
   string description = 3;
   string reporter_id = 4;
 }
 
-message IssueResponse {
+message PublicIssueResponse {
   string ticket_id = 1;
   string status = 2;
   string message = 3;
 }
 
-message ServiceRequest {
+message PublicServiceRequest {
   string service_type = 1;
 }
 
-message ServiceStatus {
+message PublicServiceStatus {
   string status = 1;
   int32 response_time = 2;
 }
 
-message ServiceStreamRequest {
+message PublicServiceStreamRequest {
   repeated string service_types = 1;
 }
 
-message ServiceUpdate {
+message PublicServiceUpdate {
   string service_type = 1;
   string status = 2;
   string update_message = 3;
   string timestamp = 4;
 }
 
-// Parking service messages
+// ========== Parking Service ==========
+service ParkingService {
+  rpc FindAvailableParking (ParkingRequest) returns (ParkingResponse);
+  rpc ReserveParking (ParkingReservation) returns (ParkingConfirmation);
+  rpc StreamParkingUpdates (ParkingStreamRequest) returns (stream ParkingUpdate);
+}
+
 message ParkingRequest {
   string area_id = 1;
 }
@@ -125,3 +151,6 @@ message ParkingUpdate {
   bool is_available = 2;
   string timestamp = 3;
 }
+
+// ========== Common ==========
+message Empty {}

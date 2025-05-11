@@ -15,6 +15,26 @@ public final class Smartcity {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DiscoveryServiceInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DiscoveryServiceInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DiscoveryServiceResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DiscoveryServiceResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DiscoveryServiceRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DiscoveryServiceRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DiscoveryServiceList_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DiscoveryServiceList_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_TrafficRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -45,35 +65,35 @@ public final class Smartcity {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_TrafficUpdate_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_IssueReport_descriptor;
+    internal_static_PublicIssueReport_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_IssueReport_fieldAccessorTable;
+      internal_static_PublicIssueReport_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_IssueResponse_descriptor;
+    internal_static_PublicIssueResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_IssueResponse_fieldAccessorTable;
+      internal_static_PublicIssueResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ServiceRequest_descriptor;
+    internal_static_PublicServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ServiceRequest_fieldAccessorTable;
+      internal_static_PublicServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ServiceStatus_descriptor;
+    internal_static_PublicServiceStatus_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ServiceStatus_fieldAccessorTable;
+      internal_static_PublicServiceStatus_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ServiceStreamRequest_descriptor;
+    internal_static_PublicServiceStreamRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ServiceStreamRequest_fieldAccessorTable;
+      internal_static_PublicServiceStreamRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ServiceUpdate_descriptor;
+    internal_static_PublicServiceUpdate_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ServiceUpdate_fieldAccessorTable;
+      internal_static_PublicServiceUpdate_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ParkingRequest_descriptor;
   static final 
@@ -109,6 +129,11 @@ public final class Smartcity {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ParkingUpdate_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Empty_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Empty_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -118,174 +143,218 @@ public final class Smartcity {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017smartcity.proto\")\n\016TrafficRequest\022\027\n\017i" +
-      "ntersection_id\030\001 \001(\t\"Y\n\017TrafficResponse\022" +
-      "\025\n\rvehicle_count\030\001 \001(\005\022\025\n\raverage_speed\030" +
-      "\002 \001(\001\022\030\n\020congestion_level\030\003 \001(\t\"\\\n\023Traff" +
-      "icLightRequest\022\027\n\017intersection_id\030\001 \001(\t\022" +
-      "\026\n\016green_duration\030\002 \001(\005\022\024\n\014red_duration\030" +
-      "\003 \001(\005\"8\n\024TrafficLightResponse\022\017\n\007success" +
-      "\030\001 \001(\010\022\017\n\007message\030\002 \001(\t\"0\n\024TrafficStream" +
-      "Request\022\030\n\020intersection_ids\030\001 \003(\t\"R\n\rTra" +
-      "fficUpdate\022\027\n\017intersection_id\030\001 \001(\t\022\025\n\rv" +
-      "ehicle_count\030\002 \001(\005\022\021\n\ttimestamp\030\003 \001(\t\"]\n" +
-      "\013IssueReport\022\022\n\nissue_type\030\001 \001(\t\022\020\n\010loca" +
-      "tion\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\023\n\013repor" +
-      "ter_id\030\004 \001(\t\"C\n\rIssueResponse\022\021\n\tticket_" +
-      "id\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\022\017\n\007message\030\003 \001(" +
-      "\t\"&\n\016ServiceRequest\022\024\n\014service_type\030\001 \001(" +
-      "\t\"6\n\rServiceStatus\022\016\n\006status\030\001 \001(\t\022\025\n\rre" +
-      "sponse_time\030\002 \001(\005\"-\n\024ServiceStreamReques" +
-      "t\022\025\n\rservice_types\030\001 \003(\t\"`\n\rServiceUpdat" +
-      "e\022\024\n\014service_type\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\022" +
-      "\026\n\016update_message\030\003 \001(\t\022\021\n\ttimestamp\030\004 \001" +
-      "(\t\"!\n\016ParkingRequest\022\017\n\007area_id\030\001 \001(\t\"G\n" +
-      "\017ParkingResponse\022\027\n\017available_spots\030\001 \001(" +
-      "\005\022\033\n\005spots\030\002 \003(\0132\014.ParkingSpot\"F\n\013Parkin" +
-      "gSpot\022\017\n\007spot_id\030\001 \001(\t\022\024\n\014is_available\030\002" +
-      " \001(\010\022\020\n\010location\030\003 \001(\t\"g\n\022ParkingReserva" +
-      "tion\022\017\n\007spot_id\030\001 \001(\t\022\017\n\007user_id\030\002 \001(\t\022\025" +
-      "\n\rvehicle_plate\030\003 \001(\t\022\030\n\020duration_minute" +
-      "s\030\004 \001(\005\"O\n\023ParkingConfirmation\022\017\n\007succes" +
-      "s\030\001 \001(\010\022\026\n\016reservation_id\030\002 \001(\t\022\017\n\007messa" +
-      "ge\030\003 \001(\t\"\'\n\024ParkingStreamRequest\022\017\n\007area" +
-      "_id\030\001 \001(\t\"I\n\rParkingUpdate\022\017\n\007spot_id\030\001 " +
-      "\001(\t\022\024\n\014is_available\030\002 \001(\010\022\021\n\ttimestamp\030\003" +
-      " \001(\t2\312\001\n\016TrafficService\0223\n\016GetTrafficDat" +
-      "a\022\017.TrafficRequest\032\020.TrafficResponse\022B\n\023" +
-      "AdjustTrafficLights\022\024.TrafficLightReques" +
-      "t\032\025.TrafficLightResponse\022?\n\024StreamTraffi" +
-      "cUpdates\022\025.TrafficStreamRequest\032\016.Traffi" +
-      "cUpdate0\0012\262\001\n\rPublicService\022+\n\013ReportIss" +
-      "ue\022\014.IssueReport\032\016.IssueResponse\0223\n\020GetS" +
-      "erviceStatus\022\017.ServiceRequest\032\016.ServiceS" +
-      "tatus\022?\n\024StreamServiceUpdates\022\025.ServiceS" +
-      "treamRequest\032\016.ServiceUpdate0\0012\311\001\n\016Parki" +
-      "ngService\0229\n\024FindAvailableParking\022\017.Park" +
-      "ingRequest\032\020.ParkingResponse\022;\n\016ReserveP" +
-      "arking\022\023.ParkingReservation\032\024.ParkingCon" +
-      "firmation\022?\n\024StreamParkingUpdates\022\025.Park" +
-      "ingStreamRequest\032\016.ParkingUpdate0\001B\025\n\021co" +
-      "m.nci.smartcityP\001b\006proto3"
+      "\n\017smartcity.proto\"[\n\024DiscoveryServiceInf" +
+      "o\022\024\n\014service_name\030\001 \001(\t\022\027\n\017service_addre" +
+      "ss\030\002 \001(\t\022\024\n\014service_port\030\003 \001(\005\"<\n\030Discov" +
+      "eryServiceResponse\022\017\n\007success\030\001 \001(\010\022\017\n\007m" +
+      "essage\030\002 \001(\t\"/\n\027DiscoveryServiceRequest\022" +
+      "\024\n\014service_name\030\001 \001(\t\"?\n\024DiscoveryServic" +
+      "eList\022\'\n\010services\030\001 \003(\0132\025.DiscoveryServi" +
+      "ceInfo\")\n\016TrafficRequest\022\027\n\017intersection" +
+      "_id\030\001 \001(\t\"Y\n\017TrafficResponse\022\025\n\rvehicle_" +
+      "count\030\001 \001(\005\022\025\n\raverage_speed\030\002 \001(\001\022\030\n\020co" +
+      "ngestion_level\030\003 \001(\t\"\\\n\023TrafficLightRequ" +
+      "est\022\027\n\017intersection_id\030\001 \001(\t\022\026\n\016green_du" +
+      "ration\030\002 \001(\005\022\024\n\014red_duration\030\003 \001(\005\"8\n\024Tr" +
+      "afficLightResponse\022\017\n\007success\030\001 \001(\010\022\017\n\007m" +
+      "essage\030\002 \001(\t\"0\n\024TrafficStreamRequest\022\030\n\020" +
+      "intersection_ids\030\001 \003(\t\"R\n\rTrafficUpdate\022" +
+      "\027\n\017intersection_id\030\001 \001(\t\022\025\n\rvehicle_coun" +
+      "t\030\002 \001(\005\022\021\n\ttimestamp\030\003 \001(\t\"c\n\021PublicIssu" +
+      "eReport\022\022\n\nissue_type\030\001 \001(\t\022\020\n\010location\030" +
+      "\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\023\n\013reporter_i" +
+      "d\030\004 \001(\t\"I\n\023PublicIssueResponse\022\021\n\tticket" +
+      "_id\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\022\017\n\007message\030\003 \001" +
+      "(\t\",\n\024PublicServiceRequest\022\024\n\014service_ty" +
+      "pe\030\001 \001(\t\"<\n\023PublicServiceStatus\022\016\n\006statu" +
+      "s\030\001 \001(\t\022\025\n\rresponse_time\030\002 \001(\005\"3\n\032Public" +
+      "ServiceStreamRequest\022\025\n\rservice_types\030\001 " +
+      "\003(\t\"f\n\023PublicServiceUpdate\022\024\n\014service_ty" +
+      "pe\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\022\026\n\016update_messa" +
+      "ge\030\003 \001(\t\022\021\n\ttimestamp\030\004 \001(\t\"!\n\016ParkingRe" +
+      "quest\022\017\n\007area_id\030\001 \001(\t\"G\n\017ParkingRespons" +
+      "e\022\027\n\017available_spots\030\001 \001(\005\022\033\n\005spots\030\002 \003(" +
+      "\0132\014.ParkingSpot\"F\n\013ParkingSpot\022\017\n\007spot_i" +
+      "d\030\001 \001(\t\022\024\n\014is_available\030\002 \001(\010\022\020\n\010locatio" +
+      "n\030\003 \001(\t\"g\n\022ParkingReservation\022\017\n\007spot_id" +
+      "\030\001 \001(\t\022\017\n\007user_id\030\002 \001(\t\022\025\n\rvehicle_plate" +
+      "\030\003 \001(\t\022\030\n\020duration_minutes\030\004 \001(\005\"O\n\023Park" +
+      "ingConfirmation\022\017\n\007success\030\001 \001(\010\022\026\n\016rese" +
+      "rvation_id\030\002 \001(\t\022\017\n\007message\030\003 \001(\t\"\'\n\024Par" +
+      "kingStreamRequest\022\017\n\007area_id\030\001 \001(\t\"I\n\rPa" +
+      "rkingUpdate\022\017\n\007spot_id\030\001 \001(\t\022\024\n\014is_avail" +
+      "able\030\002 \001(\010\022\021\n\ttimestamp\030\003 \001(\t\"\007\n\005Empty2\312" +
+      "\001\n\020ServiceDiscovery\022C\n\017RegisterService\022\025" +
+      ".DiscoveryServiceInfo\032\031.DiscoveryService" +
+      "Response\022B\n\017DiscoverService\022\030.DiscoveryS" +
+      "erviceRequest\032\025.DiscoveryServiceInfo\022-\n\014" +
+      "ListServices\022\006.Empty\032\025.DiscoveryServiceL" +
+      "ist2\312\001\n\016TrafficService\0223\n\016GetTrafficData" +
+      "\022\017.TrafficRequest\032\020.TrafficResponse\022B\n\023A" +
+      "djustTrafficLights\022\024.TrafficLightRequest" +
+      "\032\025.TrafficLightResponse\022?\n\024StreamTraffic" +
+      "Updates\022\025.TrafficStreamRequest\032\016.Traffic" +
+      "Update0\0012\326\001\n\rPublicService\0227\n\013ReportIssu" +
+      "e\022\022.PublicIssueReport\032\024.PublicIssueRespo" +
+      "nse\022?\n\020GetServiceStatus\022\025.PublicServiceR" +
+      "equest\032\024.PublicServiceStatus\022K\n\024StreamSe" +
+      "rviceUpdates\022\033.PublicServiceStreamReques" +
+      "t\032\024.PublicServiceUpdate0\0012\311\001\n\016ParkingSer" +
+      "vice\0229\n\024FindAvailableParking\022\017.ParkingRe" +
+      "quest\032\020.ParkingResponse\022;\n\016ReserveParkin" +
+      "g\022\023.ParkingReservation\032\024.ParkingConfirma" +
+      "tion\022?\n\024StreamParkingUpdates\022\025.ParkingSt" +
+      "reamRequest\032\016.ParkingUpdate0\001B\025\n\021com.nci" +
+      ".smartcityP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_TrafficRequest_descriptor =
+    internal_static_DiscoveryServiceInfo_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_DiscoveryServiceInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DiscoveryServiceInfo_descriptor,
+        new java.lang.String[] { "ServiceName", "ServiceAddress", "ServicePort", });
+    internal_static_DiscoveryServiceResponse_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_DiscoveryServiceResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DiscoveryServiceResponse_descriptor,
+        new java.lang.String[] { "Success", "Message", });
+    internal_static_DiscoveryServiceRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_DiscoveryServiceRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DiscoveryServiceRequest_descriptor,
+        new java.lang.String[] { "ServiceName", });
+    internal_static_DiscoveryServiceList_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_DiscoveryServiceList_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DiscoveryServiceList_descriptor,
+        new java.lang.String[] { "Services", });
+    internal_static_TrafficRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_TrafficRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TrafficRequest_descriptor,
         new java.lang.String[] { "IntersectionId", });
     internal_static_TrafficResponse_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_TrafficResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TrafficResponse_descriptor,
         new java.lang.String[] { "VehicleCount", "AverageSpeed", "CongestionLevel", });
     internal_static_TrafficLightRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_TrafficLightRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TrafficLightRequest_descriptor,
         new java.lang.String[] { "IntersectionId", "GreenDuration", "RedDuration", });
     internal_static_TrafficLightResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_TrafficLightResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TrafficLightResponse_descriptor,
         new java.lang.String[] { "Success", "Message", });
     internal_static_TrafficStreamRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_TrafficStreamRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TrafficStreamRequest_descriptor,
         new java.lang.String[] { "IntersectionIds", });
     internal_static_TrafficUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_TrafficUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TrafficUpdate_descriptor,
         new java.lang.String[] { "IntersectionId", "VehicleCount", "Timestamp", });
-    internal_static_IssueReport_descriptor =
-      getDescriptor().getMessageTypes().get(6);
-    internal_static_IssueReport_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_IssueReport_descriptor,
-        new java.lang.String[] { "IssueType", "Location", "Description", "ReporterId", });
-    internal_static_IssueResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
-    internal_static_IssueResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_IssueResponse_descriptor,
-        new java.lang.String[] { "TicketId", "Status", "Message", });
-    internal_static_ServiceRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_ServiceRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ServiceRequest_descriptor,
-        new java.lang.String[] { "ServiceType", });
-    internal_static_ServiceStatus_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_ServiceStatus_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ServiceStatus_descriptor,
-        new java.lang.String[] { "Status", "ResponseTime", });
-    internal_static_ServiceStreamRequest_descriptor =
+    internal_static_PublicIssueReport_descriptor =
       getDescriptor().getMessageTypes().get(10);
-    internal_static_ServiceStreamRequest_fieldAccessorTable = new
+    internal_static_PublicIssueReport_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ServiceStreamRequest_descriptor,
-        new java.lang.String[] { "ServiceTypes", });
-    internal_static_ServiceUpdate_descriptor =
+        internal_static_PublicIssueReport_descriptor,
+        new java.lang.String[] { "IssueType", "Location", "Description", "ReporterId", });
+    internal_static_PublicIssueResponse_descriptor =
       getDescriptor().getMessageTypes().get(11);
-    internal_static_ServiceUpdate_fieldAccessorTable = new
+    internal_static_PublicIssueResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ServiceUpdate_descriptor,
+        internal_static_PublicIssueResponse_descriptor,
+        new java.lang.String[] { "TicketId", "Status", "Message", });
+    internal_static_PublicServiceRequest_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_PublicServiceRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_PublicServiceRequest_descriptor,
+        new java.lang.String[] { "ServiceType", });
+    internal_static_PublicServiceStatus_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_PublicServiceStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_PublicServiceStatus_descriptor,
+        new java.lang.String[] { "Status", "ResponseTime", });
+    internal_static_PublicServiceStreamRequest_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_PublicServiceStreamRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_PublicServiceStreamRequest_descriptor,
+        new java.lang.String[] { "ServiceTypes", });
+    internal_static_PublicServiceUpdate_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_PublicServiceUpdate_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_PublicServiceUpdate_descriptor,
         new java.lang.String[] { "ServiceType", "Status", "UpdateMessage", "Timestamp", });
     internal_static_ParkingRequest_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_ParkingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ParkingRequest_descriptor,
         new java.lang.String[] { "AreaId", });
     internal_static_ParkingResponse_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_ParkingResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ParkingResponse_descriptor,
         new java.lang.String[] { "AvailableSpots", "Spots", });
     internal_static_ParkingSpot_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_ParkingSpot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ParkingSpot_descriptor,
         new java.lang.String[] { "SpotId", "IsAvailable", "Location", });
     internal_static_ParkingReservation_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_ParkingReservation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ParkingReservation_descriptor,
         new java.lang.String[] { "SpotId", "UserId", "VehiclePlate", "DurationMinutes", });
     internal_static_ParkingConfirmation_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_ParkingConfirmation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ParkingConfirmation_descriptor,
         new java.lang.String[] { "Success", "ReservationId", "Message", });
     internal_static_ParkingStreamRequest_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_ParkingStreamRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ParkingStreamRequest_descriptor,
         new java.lang.String[] { "AreaId", });
     internal_static_ParkingUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_ParkingUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ParkingUpdate_descriptor,
         new java.lang.String[] { "SpotId", "IsAvailable", "Timestamp", });
+    internal_static_Empty_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_Empty_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Empty_descriptor,
+        new java.lang.String[] { });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

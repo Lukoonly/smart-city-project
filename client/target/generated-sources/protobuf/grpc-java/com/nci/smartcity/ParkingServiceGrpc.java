@@ -3,9 +3,12 @@ package com.nci.smartcity;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
+ * <pre>
+ * ========== Parking Service ==========
+ * </pre>
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.42.1)",
+    value = "by gRPC proto compiler (version 1.54.0)",
     comments = "Source: smartcity.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class ParkingServiceGrpc {
@@ -153,60 +156,56 @@ public final class ParkingServiceGrpc {
   }
 
   /**
+   * <pre>
+   * ========== Parking Service ==========
+   * </pre>
    */
-  public static abstract class ParkingServiceImplBase implements io.grpc.BindableService {
+  public interface AsyncService {
 
     /**
      */
-    public void findAvailableParking(com.nci.smartcity.ParkingRequest request,
+    default void findAvailableParking(com.nci.smartcity.ParkingRequest request,
         io.grpc.stub.StreamObserver<com.nci.smartcity.ParkingResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFindAvailableParkingMethod(), responseObserver);
     }
 
     /**
      */
-    public void reserveParking(com.nci.smartcity.ParkingReservation request,
+    default void reserveParking(com.nci.smartcity.ParkingReservation request,
         io.grpc.stub.StreamObserver<com.nci.smartcity.ParkingConfirmation> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReserveParkingMethod(), responseObserver);
     }
 
     /**
      */
-    public void streamParkingUpdates(com.nci.smartcity.ParkingStreamRequest request,
+    default void streamParkingUpdates(com.nci.smartcity.ParkingStreamRequest request,
         io.grpc.stub.StreamObserver<com.nci.smartcity.ParkingUpdate> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getStreamParkingUpdatesMethod(), responseObserver);
-    }
-
-    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
-      return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
-          .addMethod(
-            getFindAvailableParkingMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                com.nci.smartcity.ParkingRequest,
-                com.nci.smartcity.ParkingResponse>(
-                  this, METHODID_FIND_AVAILABLE_PARKING)))
-          .addMethod(
-            getReserveParkingMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                com.nci.smartcity.ParkingReservation,
-                com.nci.smartcity.ParkingConfirmation>(
-                  this, METHODID_RESERVE_PARKING)))
-          .addMethod(
-            getStreamParkingUpdatesMethod(),
-            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
-              new MethodHandlers<
-                com.nci.smartcity.ParkingStreamRequest,
-                com.nci.smartcity.ParkingUpdate>(
-                  this, METHODID_STREAM_PARKING_UPDATES)))
-          .build();
     }
   }
 
   /**
+   * Base class for the server implementation of the service ParkingService.
+   * <pre>
+   * ========== Parking Service ==========
+   * </pre>
    */
-  public static final class ParkingServiceStub extends io.grpc.stub.AbstractAsyncStub<ParkingServiceStub> {
+  public static abstract class ParkingServiceImplBase
+      implements io.grpc.BindableService, AsyncService {
+
+    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
+      return ParkingServiceGrpc.bindService(this);
+    }
+  }
+
+  /**
+   * A stub to allow clients to do asynchronous rpc calls to service ParkingService.
+   * <pre>
+   * ========== Parking Service ==========
+   * </pre>
+   */
+  public static final class ParkingServiceStub
+      extends io.grpc.stub.AbstractAsyncStub<ParkingServiceStub> {
     private ParkingServiceStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
@@ -244,8 +243,13 @@ public final class ParkingServiceGrpc {
   }
 
   /**
+   * A stub to allow clients to do synchronous rpc calls to service ParkingService.
+   * <pre>
+   * ========== Parking Service ==========
+   * </pre>
    */
-  public static final class ParkingServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<ParkingServiceBlockingStub> {
+  public static final class ParkingServiceBlockingStub
+      extends io.grpc.stub.AbstractBlockingStub<ParkingServiceBlockingStub> {
     private ParkingServiceBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
@@ -281,8 +285,13 @@ public final class ParkingServiceGrpc {
   }
 
   /**
+   * A stub to allow clients to do ListenableFuture-style rpc calls to service ParkingService.
+   * <pre>
+   * ========== Parking Service ==========
+   * </pre>
    */
-  public static final class ParkingServiceFutureStub extends io.grpc.stub.AbstractFutureStub<ParkingServiceFutureStub> {
+  public static final class ParkingServiceFutureStub
+      extends io.grpc.stub.AbstractFutureStub<ParkingServiceFutureStub> {
     private ParkingServiceFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
@@ -320,10 +329,10 @@ public final class ParkingServiceGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final ParkingServiceImplBase serviceImpl;
+    private final AsyncService serviceImpl;
     private final int methodId;
 
-    MethodHandlers(ParkingServiceImplBase serviceImpl, int methodId) {
+    MethodHandlers(AsyncService serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -358,6 +367,32 @@ public final class ParkingServiceGrpc {
           throw new AssertionError();
       }
     }
+  }
+
+  public static final io.grpc.ServerServiceDefinition bindService(AsyncService service) {
+    return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
+        .addMethod(
+          getFindAvailableParkingMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.nci.smartcity.ParkingRequest,
+              com.nci.smartcity.ParkingResponse>(
+                service, METHODID_FIND_AVAILABLE_PARKING)))
+        .addMethod(
+          getReserveParkingMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.nci.smartcity.ParkingReservation,
+              com.nci.smartcity.ParkingConfirmation>(
+                service, METHODID_RESERVE_PARKING)))
+        .addMethod(
+          getStreamParkingUpdatesMethod(),
+          io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+            new MethodHandlers<
+              com.nci.smartcity.ParkingStreamRequest,
+              com.nci.smartcity.ParkingUpdate>(
+                service, METHODID_STREAM_PARKING_UPDATES)))
+        .build();
   }
 
   private static abstract class ParkingServiceBaseDescriptorSupplier

@@ -28,71 +28,6 @@ private static final long serialVersionUID = 0L;
     return new ParkingReservation();
   }
 
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private ParkingReservation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            spotId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            userId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            vehiclePlate_ = s;
-            break;
-          }
-          case 32: {
-
-            durationMinutes_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.nci.smartcity.Smartcity.internal_static_ParkingReservation_descriptor;
@@ -107,7 +42,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPOT_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object spotId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object spotId_ = "";
   /**
    * <code>string spot_id = 1;</code>
    * @return The spotId.
@@ -145,7 +81,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object userId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object userId_ = "";
   /**
    * <code>string user_id = 2;</code>
    * @return The userId.
@@ -183,7 +120,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VEHICLE_PLATE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object vehiclePlate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object vehiclePlate_ = "";
   /**
    * <code>string vehicle_plate = 3;</code>
    * @return The vehiclePlate.
@@ -221,7 +159,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DURATION_MINUTES_FIELD_NUMBER = 4;
-  private int durationMinutes_;
+  private int durationMinutes_ = 0;
   /**
    * <code>int32 duration_minutes = 4;</code>
    * @return The durationMinutes.
@@ -257,7 +195,7 @@ private static final long serialVersionUID = 0L;
     if (durationMinutes_ != 0) {
       output.writeInt32(4, durationMinutes_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -279,7 +217,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(4, durationMinutes_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -302,7 +240,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getVehiclePlate())) return false;
     if (getDurationMinutes()
         != other.getDurationMinutes()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -321,7 +259,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getVehiclePlate().hashCode();
     hash = (37 * hash) + DURATION_MINUTES_FIELD_NUMBER;
     hash = (53 * hash) + getDurationMinutes();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -438,30 +376,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.nci.smartcity.ParkingReservation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       spotId_ = "";
-
       userId_ = "";
-
       vehiclePlate_ = "";
-
       durationMinutes_ = 0;
-
       return this;
     }
 
@@ -488,46 +418,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.nci.smartcity.ParkingReservation buildPartial() {
       com.nci.smartcity.ParkingReservation result = new com.nci.smartcity.ParkingReservation(this);
-      result.spotId_ = spotId_;
-      result.userId_ = userId_;
-      result.vehiclePlate_ = vehiclePlate_;
-      result.durationMinutes_ = durationMinutes_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    @java.lang.Override
-    public Builder clone() {
-      return super.clone();
+    private void buildPartial0(com.nci.smartcity.ParkingReservation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.spotId_ = spotId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.userId_ = userId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.vehiclePlate_ = vehiclePlate_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.durationMinutes_ = durationMinutes_;
+      }
     }
-    @java.lang.Override
-    public Builder setField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return super.setField(field, value);
-    }
-    @java.lang.Override
-    public Builder clearField(
-        com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return super.clearField(field);
-    }
-    @java.lang.Override
-    public Builder clearOneof(
-        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return super.clearOneof(oneof);
-    }
-    @java.lang.Override
-    public Builder setRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
-      return super.setRepeatedField(field, index, value);
-    }
-    @java.lang.Override
-    public Builder addRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return super.addRepeatedField(field, value);
-    }
+
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
       if (other instanceof com.nci.smartcity.ParkingReservation) {
@@ -542,20 +453,23 @@ private static final long serialVersionUID = 0L;
       if (other == com.nci.smartcity.ParkingReservation.getDefaultInstance()) return this;
       if (!other.getSpotId().isEmpty()) {
         spotId_ = other.spotId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getUserId().isEmpty()) {
         userId_ = other.userId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getVehiclePlate().isEmpty()) {
         vehiclePlate_ = other.vehiclePlate_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getDurationMinutes() != 0) {
         setDurationMinutes(other.getDurationMinutes());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -570,19 +484,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.nci.smartcity.ParkingReservation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              spotId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              userId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              vehiclePlate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              durationMinutes_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.nci.smartcity.ParkingReservation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object spotId_ = "";
     /**
@@ -625,11 +573,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSpotId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       spotId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -638,8 +584,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSpotId() {
-      
       spotId_ = getDefaultInstance().getSpotId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -650,12 +596,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSpotIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       spotId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -701,11 +645,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       userId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -714,8 +656,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
-      
       userId_ = getDefaultInstance().getUserId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -726,12 +668,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       userId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -777,11 +717,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVehiclePlate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       vehiclePlate_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -790,8 +728,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVehiclePlate() {
-      
       vehiclePlate_ = getDefaultInstance().getVehiclePlate();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -802,12 +740,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVehiclePlateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       vehiclePlate_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -827,8 +763,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDurationMinutes(int value) {
-      
+
       durationMinutes_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -837,7 +774,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDurationMinutes() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       durationMinutes_ = 0;
       onChanged();
       return this;
@@ -875,7 +812,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ParkingReservation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

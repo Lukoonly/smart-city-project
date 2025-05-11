@@ -26,66 +26,6 @@ private static final long serialVersionUID = 0L;
     return new ParkingResponse();
   }
 
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private ParkingResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            availableSpots_ = input.readInt32();
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              spots_ = new java.util.ArrayList<com.nci.smartcity.ParkingSpot>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            spots_.add(
-                input.readMessage(com.nci.smartcity.ParkingSpot.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        spots_ = java.util.Collections.unmodifiableList(spots_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.nci.smartcity.Smartcity.internal_static_ParkingResponse_descriptor;
@@ -100,7 +40,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AVAILABLE_SPOTS_FIELD_NUMBER = 1;
-  private int availableSpots_;
+  private int availableSpots_ = 0;
   /**
    * <code>int32 available_spots = 1;</code>
    * @return The availableSpots.
@@ -111,6 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPOTS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.nci.smartcity.ParkingSpot> spots_;
   /**
    * <code>repeated .ParkingSpot spots = 2;</code>
@@ -170,7 +111,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < spots_.size(); i++) {
       output.writeMessage(2, spots_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -187,7 +128,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, spots_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -206,7 +147,7 @@ private static final long serialVersionUID = 0L;
         != other.getAvailableSpots()) return false;
     if (!getSpotsList()
         .equals(other.getSpotsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -223,7 +164,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SPOTS_FIELD_NUMBER;
       hash = (53 * hash) + getSpotsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -340,31 +281,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.nci.smartcity.ParkingResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSpotsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       availableSpots_ = 0;
-
       if (spotsBuilder_ == null) {
         spots_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        spots_ = null;
         spotsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -391,53 +327,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.nci.smartcity.ParkingResponse buildPartial() {
       com.nci.smartcity.ParkingResponse result = new com.nci.smartcity.ParkingResponse(this);
-      int from_bitField0_ = bitField0_;
-      result.availableSpots_ = availableSpots_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.nci.smartcity.ParkingResponse result) {
       if (spotsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           spots_ = java.util.Collections.unmodifiableList(spots_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.spots_ = spots_;
       } else {
         result.spots_ = spotsBuilder_.build();
       }
-      onBuilt();
-      return result;
     }
 
-    @java.lang.Override
-    public Builder clone() {
-      return super.clone();
+    private void buildPartial0(com.nci.smartcity.ParkingResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.availableSpots_ = availableSpots_;
+      }
     }
-    @java.lang.Override
-    public Builder setField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return super.setField(field, value);
-    }
-    @java.lang.Override
-    public Builder clearField(
-        com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return super.clearField(field);
-    }
-    @java.lang.Override
-    public Builder clearOneof(
-        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return super.clearOneof(oneof);
-    }
-    @java.lang.Override
-    public Builder setRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
-      return super.setRepeatedField(field, index, value);
-    }
-    @java.lang.Override
-    public Builder addRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return super.addRepeatedField(field, value);
-    }
+
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
       if (other instanceof com.nci.smartcity.ParkingResponse) {
@@ -457,7 +371,7 @@ private static final long serialVersionUID = 0L;
         if (!other.spots_.isEmpty()) {
           if (spots_.isEmpty()) {
             spots_ = other.spots_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureSpotsIsMutable();
             spots_.addAll(other.spots_);
@@ -470,7 +384,7 @@ private static final long serialVersionUID = 0L;
             spotsBuilder_.dispose();
             spotsBuilder_ = null;
             spots_ = other.spots_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             spotsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSpotsFieldBuilder() : null;
@@ -479,7 +393,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -494,17 +408,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.nci.smartcity.ParkingResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              availableSpots_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              com.nci.smartcity.ParkingSpot m =
+                  input.readMessage(
+                      com.nci.smartcity.ParkingSpot.parser(),
+                      extensionRegistry);
+              if (spotsBuilder_ == null) {
+                ensureSpotsIsMutable();
+                spots_.add(m);
+              } else {
+                spotsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.nci.smartcity.ParkingResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -524,8 +469,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAvailableSpots(int value) {
-      
+
       availableSpots_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -534,7 +480,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAvailableSpots() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       availableSpots_ = 0;
       onChanged();
       return this;
@@ -543,9 +489,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.nci.smartcity.ParkingSpot> spots_ =
       java.util.Collections.emptyList();
     private void ensureSpotsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         spots_ = new java.util.ArrayList<com.nci.smartcity.ParkingSpot>(spots_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -695,7 +641,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSpots() {
       if (spotsBuilder_ == null) {
         spots_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         spotsBuilder_.clear();
@@ -772,7 +718,7 @@ private static final long serialVersionUID = 0L;
         spotsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.nci.smartcity.ParkingSpot, com.nci.smartcity.ParkingSpot.Builder, com.nci.smartcity.ParkingSpotOrBuilder>(
                 spots_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         spots_ = null;
@@ -812,7 +758,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ParkingResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

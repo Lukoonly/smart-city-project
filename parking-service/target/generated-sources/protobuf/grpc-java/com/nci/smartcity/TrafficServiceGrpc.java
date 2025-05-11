@@ -3,9 +3,12 @@ package com.nci.smartcity;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
+ * <pre>
+ * ========== Traffic Service ==========
+ * </pre>
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.42.1)",
+    value = "by gRPC proto compiler (version 1.54.0)",
     comments = "Source: smartcity.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class TrafficServiceGrpc {
@@ -153,60 +156,56 @@ public final class TrafficServiceGrpc {
   }
 
   /**
+   * <pre>
+   * ========== Traffic Service ==========
+   * </pre>
    */
-  public static abstract class TrafficServiceImplBase implements io.grpc.BindableService {
+  public interface AsyncService {
 
     /**
      */
-    public void getTrafficData(com.nci.smartcity.TrafficRequest request,
+    default void getTrafficData(com.nci.smartcity.TrafficRequest request,
         io.grpc.stub.StreamObserver<com.nci.smartcity.TrafficResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetTrafficDataMethod(), responseObserver);
     }
 
     /**
      */
-    public void adjustTrafficLights(com.nci.smartcity.TrafficLightRequest request,
+    default void adjustTrafficLights(com.nci.smartcity.TrafficLightRequest request,
         io.grpc.stub.StreamObserver<com.nci.smartcity.TrafficLightResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAdjustTrafficLightsMethod(), responseObserver);
     }
 
     /**
      */
-    public void streamTrafficUpdates(com.nci.smartcity.TrafficStreamRequest request,
+    default void streamTrafficUpdates(com.nci.smartcity.TrafficStreamRequest request,
         io.grpc.stub.StreamObserver<com.nci.smartcity.TrafficUpdate> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getStreamTrafficUpdatesMethod(), responseObserver);
-    }
-
-    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
-      return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
-          .addMethod(
-            getGetTrafficDataMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                com.nci.smartcity.TrafficRequest,
-                com.nci.smartcity.TrafficResponse>(
-                  this, METHODID_GET_TRAFFIC_DATA)))
-          .addMethod(
-            getAdjustTrafficLightsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                com.nci.smartcity.TrafficLightRequest,
-                com.nci.smartcity.TrafficLightResponse>(
-                  this, METHODID_ADJUST_TRAFFIC_LIGHTS)))
-          .addMethod(
-            getStreamTrafficUpdatesMethod(),
-            io.grpc.stub.ServerCalls.asyncServerStreamingCall(
-              new MethodHandlers<
-                com.nci.smartcity.TrafficStreamRequest,
-                com.nci.smartcity.TrafficUpdate>(
-                  this, METHODID_STREAM_TRAFFIC_UPDATES)))
-          .build();
     }
   }
 
   /**
+   * Base class for the server implementation of the service TrafficService.
+   * <pre>
+   * ========== Traffic Service ==========
+   * </pre>
    */
-  public static final class TrafficServiceStub extends io.grpc.stub.AbstractAsyncStub<TrafficServiceStub> {
+  public static abstract class TrafficServiceImplBase
+      implements io.grpc.BindableService, AsyncService {
+
+    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
+      return TrafficServiceGrpc.bindService(this);
+    }
+  }
+
+  /**
+   * A stub to allow clients to do asynchronous rpc calls to service TrafficService.
+   * <pre>
+   * ========== Traffic Service ==========
+   * </pre>
+   */
+  public static final class TrafficServiceStub
+      extends io.grpc.stub.AbstractAsyncStub<TrafficServiceStub> {
     private TrafficServiceStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
@@ -244,8 +243,13 @@ public final class TrafficServiceGrpc {
   }
 
   /**
+   * A stub to allow clients to do synchronous rpc calls to service TrafficService.
+   * <pre>
+   * ========== Traffic Service ==========
+   * </pre>
    */
-  public static final class TrafficServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<TrafficServiceBlockingStub> {
+  public static final class TrafficServiceBlockingStub
+      extends io.grpc.stub.AbstractBlockingStub<TrafficServiceBlockingStub> {
     private TrafficServiceBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
@@ -281,8 +285,13 @@ public final class TrafficServiceGrpc {
   }
 
   /**
+   * A stub to allow clients to do ListenableFuture-style rpc calls to service TrafficService.
+   * <pre>
+   * ========== Traffic Service ==========
+   * </pre>
    */
-  public static final class TrafficServiceFutureStub extends io.grpc.stub.AbstractFutureStub<TrafficServiceFutureStub> {
+  public static final class TrafficServiceFutureStub
+      extends io.grpc.stub.AbstractFutureStub<TrafficServiceFutureStub> {
     private TrafficServiceFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
@@ -320,10 +329,10 @@ public final class TrafficServiceGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final TrafficServiceImplBase serviceImpl;
+    private final AsyncService serviceImpl;
     private final int methodId;
 
-    MethodHandlers(TrafficServiceImplBase serviceImpl, int methodId) {
+    MethodHandlers(AsyncService serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -358,6 +367,32 @@ public final class TrafficServiceGrpc {
           throw new AssertionError();
       }
     }
+  }
+
+  public static final io.grpc.ServerServiceDefinition bindService(AsyncService service) {
+    return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
+        .addMethod(
+          getGetTrafficDataMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.nci.smartcity.TrafficRequest,
+              com.nci.smartcity.TrafficResponse>(
+                service, METHODID_GET_TRAFFIC_DATA)))
+        .addMethod(
+          getAdjustTrafficLightsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.nci.smartcity.TrafficLightRequest,
+              com.nci.smartcity.TrafficLightResponse>(
+                service, METHODID_ADJUST_TRAFFIC_LIGHTS)))
+        .addMethod(
+          getStreamTrafficUpdatesMethod(),
+          io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+            new MethodHandlers<
+              com.nci.smartcity.TrafficStreamRequest,
+              com.nci.smartcity.TrafficUpdate>(
+                service, METHODID_STREAM_TRAFFIC_UPDATES)))
+        .build();
   }
 
   private static abstract class TrafficServiceBaseDescriptorSupplier
