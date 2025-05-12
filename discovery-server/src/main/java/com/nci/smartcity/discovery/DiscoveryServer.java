@@ -2,11 +2,13 @@ package com.nci.smartcity.discovery;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
-import java.util.logging.Logger;
 
 public class DiscoveryServer {
-    private static final Logger logger = Logger.getLogger(DiscoveryServer.class.getName());
+    private static final Logger logger = LogManager.getLogger(DiscoveryServer.class);
     private Server server;
     private final int port;
 
@@ -32,6 +34,7 @@ public class DiscoveryServer {
         if (server != null) {
             server.shutdown();
         }
+        logger.info("Discovery Server stopped");
     }
 
     public void blockUntilShutdown() throws InterruptedException {

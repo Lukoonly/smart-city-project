@@ -4,8 +4,11 @@ import com.nci.smartcity.ServiceDiscoveryGrpc;
 import com.nci.smartcity.DiscoveryServiceInfo;
 import com.nci.smartcity.DiscoveryServiceList;
 import com.nci.smartcity.DiscoveryServiceRequest;
+import com.nci.smartcity.discovery.DiscoveryServer;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class DiscoveryClient {
     private final ManagedChannel channel;
     private final ServiceDiscoveryGrpc.ServiceDiscoveryBlockingStub blockingStub;
+    private static final Logger logger = LogManager.getLogger(DiscoveryServer.class);
 
     public DiscoveryClient(String host, int port) {
         this.channel = ManagedChannelBuilder.forAddress(host, port)
@@ -32,7 +36,7 @@ public class DiscoveryClient {
                 .setServiceAddress(serviceAddress)
                 .setServicePort(servicePort)
                 .build();
-
+        logger.info("Service is registered!");
         blockingStub.registerService(request);
     }
 
@@ -46,6 +50,7 @@ public class DiscoveryClient {
 
     public List<DiscoveryServiceInfo> discoverAllServices() {
         DiscoveryServiceList serviceList = blockingStub.listServices(com.nci.smartcity.Empty.newBuilder().build());
+        logger.info("Returned list of services");
         return new ArrayList<>(serviceList.getServicesList());
     }
 }

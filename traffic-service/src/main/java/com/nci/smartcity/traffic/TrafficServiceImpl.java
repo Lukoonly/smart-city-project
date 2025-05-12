@@ -2,6 +2,8 @@ package com.nci.smartcity.traffic;
 
 import com.nci.smartcity.*;
 import io.grpc.stub.StreamObserver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class TrafficServiceImpl extends TrafficServiceGrpc.TrafficServiceImplBase {
     private final Map<String, Intersection> intersections = new HashMap<>();
     private final Random random = new Random();
+    private static final Logger logger = LogManager.getLogger(TrafficServiceImpl.class);
 
     public TrafficServiceImpl() {
         // Initialize some intersections
@@ -23,7 +26,7 @@ public class TrafficServiceImpl extends TrafficServiceGrpc.TrafficServiceImplBas
     public void getTrafficData(TrafficRequest request, StreamObserver<TrafficResponse> responseObserver) {
         String intersectionId = request.getIntersectionId();
         Intersection intersection = intersections.get(intersectionId);
-
+        logger.info("Received traffic data request from {}", request);
         if (intersection != null) {
             // Simulate traffic data
             int vehicleCount = 10 + random.nextInt(50);
@@ -37,8 +40,10 @@ public class TrafficServiceImpl extends TrafficServiceGrpc.TrafficServiceImplBas
                     .build();
 
             responseObserver.onNext(response);
+            logger.debug("Sending response: {}", response);
         } else {
             responseObserver.onError(new IllegalArgumentException("Intersection not found"));
+            logger.error("Error processing request");
         }
         responseObserver.onCompleted();
     }

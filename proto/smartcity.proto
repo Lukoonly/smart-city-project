@@ -29,6 +29,7 @@ message DiscoveryServiceList {
   repeated DiscoveryServiceInfo services = 1;
 }
 
+
 // ========== Traffic Service ==========
 service TrafficService {
   rpc GetTrafficData (TrafficRequest) returns (TrafficResponse);
