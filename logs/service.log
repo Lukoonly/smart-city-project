@@ -1,0 +1,9 @@
+15:51:01 [main] INFO  com.nci.smartcity.discovery.DiscoveryServer - Discovery Server started, listening on 50051
+15:51:28 [main] INFO  com.nci.smartcity.discovery.DiscoveryServer - Service is registered!
+15:51:41 [main] INFO  com.nci.smartcity.discovery.DiscoveryServer - Service is registered!
+15:52:09 [main] INFO  com.nci.smartcity.discovery.DiscoveryServer - Service is registered!
+15:52:29 [main] INFO  com.nci.smartcity.discovery.DiscoveryServer - Service is registered!
+15:52:55 [main] INFO  com.nci.smartcity.discovery.DiscoveryServer - Service is registered!
+15:53:19 [AWT-EventQueue-0] INFO  com.nci.smartcity.discovery.DiscoveryServer - Returned list of services
+15:53:49 [grpc-default-executor-0] INFO  com.nci.smartcity.traffic.TrafficServiceImpl - Received traffic data request from intersection_id: "intersection-1"
+
