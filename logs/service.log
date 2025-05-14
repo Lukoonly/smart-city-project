@@ -7,3 +7,4 @@
 15:53:19 [AWT-EventQueue-0] INFO  com.nci.smartcity.discovery.DiscoveryServer - Returned list of services
 15:53:49 [grpc-default-executor-0] INFO  com.nci.smartcity.traffic.TrafficServiceImpl - Received traffic data request from intersection_id: "intersection-1"
 
+14:22:03 [main] INFO  com.nci.smartcity.discovery.DiscoveryServer - Discovery Server started, listening on 50051

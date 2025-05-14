@@ -153,5 +153,4 @@ message ParkingUpdate {
   string timestamp = 3;
 }
 
-// ========== Common ==========
 message Empty {}
